@@ -1,0 +1,12 @@
+[submodule "Scherule-scheduling"]
+	path = Scherule-scheduling
+	url = git@github.com:Scherule/Scherule-scheduling.git
+	branch = master
+[submodule "Scherule-notifying"]
+	path = Scherule-notifying
+	url = git@github.com:Scherule/Scherule-notifying.git
+	branch = master
+[submodule "Scherule-calendaring"]
+	path = Scherule-calendaring
+	url = git@github.com:Scherule/Scherule-calendaring.git
+	branch = master
