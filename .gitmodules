@@ -10,3 +10,7 @@
 	path = Scherule-calendaring
 	url = git@github.com:Scherule/Scherule-calendaring.git
 	branch = master
+[submodule "Scherule-commons"]
+	path = Scherule-commons
+	url = git@github.com:Scherule/Scherule-commons.git
+	branch = master
