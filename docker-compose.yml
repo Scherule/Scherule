@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3.6.10
+    hostname: rabbit
+    volumes:
+      - .tmp/rabbit:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secretCookie"
+    ports:
+      - 27017:27017
+
+  rabbitmq-management:
+    image: rabbitmq:3.6.10-management
+    hostname: rabbit
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secretCookie"
+    depends_on:
+      - rabbitmq
+    ports:
+      - 15672:15672
