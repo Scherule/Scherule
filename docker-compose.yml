@@ -6,7 +6,7 @@ services:
     image: rabbitmq:3.6.10-management
     hostname: rabbit
     environment:
-      RABBITMQ_ERLANG_COOKIE: "secretCookie"
+      RABBITMQ_ERLANG_COOKIE: secretCookie
     volumes:
       - .tmp/rabbit:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
     ports:
