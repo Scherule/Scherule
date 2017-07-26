@@ -12,3 +12,13 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+
+  calendaring-db:
+    image: couchdb:1.6.1
+    environment:
+      COUCHDB_USER: test
+      COUCHDB_PASSWORD: test
+    volumes:
+      - ./scherule-calendaring/.tmp/db:/usr/local/var/lib/couchdb
+    ports:
+      - 5984:5984
