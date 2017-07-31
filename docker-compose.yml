@@ -2,6 +2,11 @@ version: "3"
 
 services:
 
+  swaggerui:
+    image: swaggerapi/swagger-ui:v3.0.5
+    ports:
+      - 9999:8080
+
   rabbitmq:
     image: rabbitmq:3.6.10-management
     hostname: rabbit
