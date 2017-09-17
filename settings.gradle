@@ -1,4 +1,5 @@
 rootProject.name = 'Scherule'
+include 'Scherule-buildtools'
 include 'Scherule-commons'
 include 'Scherule-notifying'
 include 'Scherule-scheduling'

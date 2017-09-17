@@ -14,3 +14,7 @@
 	path = Scherule-commons
 	url = git@github.com:Scherule/Scherule-commons.git
 	branch = master
+[submodule "Scherule-buildtools"]
+	path = Scherule-buildtools
+	url = git@github.com:Scherule/Scherule-buildtools.git
+	branch = master
