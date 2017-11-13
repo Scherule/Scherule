@@ -18,3 +18,7 @@
 	path = Scherule-buildtools
 	url = git@github.com:Scherule/Scherule-buildtools.git
 	branch = master
+[submodule "Scherule-discovery"]
+	path = Scherule-discovery
+	url = git@github.com:Scherule/Scherule-discovery.git
+	branch = master
