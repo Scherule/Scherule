@@ -22,3 +22,7 @@
 	path = Scherule-discovery
 	url = git@github.com:Scherule/Scherule-discovery.git
 	branch = master
+[submodule "Scherule-gateway"]
+	path = Scherule-gateway
+	url = git@github.com:Scherule/Scherule-gateway.git
+	branch = master
