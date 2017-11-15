@@ -4,11 +4,16 @@ services:
 
   swaggerui:
     image: swaggerapi/swagger-ui:v3.0.5
+    container_name: scherule-swagger-ui
     ports:
       - 9999:8080
+    networks:
+      backnet:
+        ipv4_address: 172.100.2.45
 
   rabbitmq:
     image: rabbitmq:3.6.10-management
+    container_name: scherule-rabbitmq
     hostname: rabbit
     environment:
       RABBITMQ_ERLANG_COOKIE: secretCookie
@@ -17,9 +22,26 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+    networks:
+      backnet:
+        ipv4_address: 172.100.2.44
 
-  calendaring-db:
+  postgres-db:
+    image: sameersbn/postgresql:9.6-2
+    container_name: scherule-postgres-db
+    ports:
+      - 5432:5432
+    networks:
+      backnet:
+        ipv4_address: 172.100.2.41
+    environment:
+      DB_NAME: users,notifications
+      DB_USER: test
+      DB_PASS: test
+
+  couch-db:
     image: couchdb:1.6.1
+    container_name: scherule-couch-db
     environment:
       COUCHDB_USER: test
       COUCHDB_PASSWORD: test
@@ -27,3 +49,47 @@ services:
       - ./scherule-calendaring/.tmp/db:/usr/local/var/lib/couchdb
     ports:
       - 5984:5984
+    networks:
+      backnet:
+        ipv4_address: 172.100.2.42
+
+  mailserver:
+    image: tvial/docker-mailserver:latest
+    container_name: scherule-mailserver
+    hostname: mail
+    domainname: domain.com
+    networks:
+      backnet:
+        ipv4_address: 172.100.2.43
+    ports:
+    - "25:25"
+    - "143:143"
+    - "587:587"
+    - "993:993"
+    volumes:
+    - maildata:/var/mail
+    - mailstate:/var/mail-state
+    - ./config/:/tmp/docker-mailserver/
+    environment:
+    - MAIL_USER=test
+    - MAIL_PASS=test
+    - ENABLE_SPAMASSASSIN=1
+    - ENABLE_CLAMAV=1
+    - ENABLE_FAIL2BAN=1
+    - ENABLE_POSTGREY=1
+    - ONE_DIR=1
+    - DMS_DEBUG=0
+    cap_add:
+    - NET_ADMIN
+
+volumes:
+  maildata:
+    driver: local
+  mailstate:
+    driver: local
+
+networks:
+  backnet:
+    ipam:
+      config:
+        - subnet: 172.100.2.0/24
