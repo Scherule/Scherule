@@ -2,15 +2,6 @@ version: "3"
 
 services:
 
-  swaggerui:
-    image: swaggerapi/swagger-ui:v3.0.5
-    container_name: scherule-swagger-ui
-    ports:
-      - 9999:8080
-    networks:
-      backnet:
-        ipv4_address: 172.100.2.45
-
   rabbitmq:
     image: rabbitmq:3.6.10-management
     container_name: scherule-rabbitmq
