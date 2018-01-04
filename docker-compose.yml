@@ -26,7 +26,7 @@ services:
       backnet:
         ipv4_address: 172.100.2.41
     environment:
-      DB_NAME: users,notifications
+      DB_NAME: users,calendar,notifications
       DB_USER: test
       DB_PASS: test
 
