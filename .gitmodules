@@ -30,3 +30,7 @@
 	path = Scherule-client-web
 	url = git@github.com:Scherule/Scherule-client-web.git
 	branch = master
+[submodule "Scherule-api-gateway"]
+	path = Scherule-api-gateway
+	url = git@github.com:Scherule/Scherule-api-gateway.git
+	branch = master
