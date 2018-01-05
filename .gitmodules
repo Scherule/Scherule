@@ -22,10 +22,6 @@
 	path = Scherule-discovery
 	url = git@github.com:Scherule/Scherule-discovery.git
 	branch = master
-[submodule "Scherule-gateway"]
-	path = Scherule-gateway
-	url = git@github.com:Scherule/Scherule-gateway.git
-	branch = master
 [submodule "Scherule-users"]
 	path = Scherule-users
 	url = git@github.com:Scherule/Scherule-users.git
